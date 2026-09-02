@@ -8,6 +8,8 @@ What is standardised is requirements engineering. ISO/IEC/IEEE 29148:2018 covers
 
 This document combines the two. The structure and the discipline come from 29148. The product sections come from PRD practice. Every section below is traceable to one or both. The full mapping and the source list are at the end of this document.
 
+This document stays at product level. It records what the product must do and why, never how it is built. Naming a technology, a schema, a library, or an internal component is out of bounds, with one exception: a technology imposed from outside the team, such as a company policy or an existing contract, is a constraint and may be recorded as one. If the team had a choice and made it, the choice belongs in the high level design, not here.
+
 ## 1. Title & Owner
 
 Identifies the document. States the feature or product name, the document ID, the person accountable for it, its current status, the version number, and the date of the last update. Readers use this block to confirm they are looking at the current version and to know who to ask when something is unclear.
