@@ -6,7 +6,7 @@ There is no official standard for a product requirements document. No standards 
 
 What is standardised is requirements engineering. ISO/IEC/IEEE 29148:2018 covers it, and it superseded IEEE 830-1998, IEEE 1233-1998, and IEEE 1362-1998. A revision is in progress, with the project authorisation approved on 10 September 2025. That standard is precise and auditable, but it has no concept of product goals, priority, or release planning. Industry PRD templates cover those, but they provide no unique identifiers, no verification, and no traceability.
 
-This document combines the two. The structure and the discipline come from 29148. The product sections come from PRD practice. Every section below is traceable to one or both. The full mapping and the source list are at the end of this document.
+This document combines the two. The structure and the discipline come from 29148. The product sections come from PRD practice. Every section below is traceable to one or both.
 
 This document stays at product level. It records what the product must do and why, never how it is built. Naming a technology, a schema, a library, or an internal component is out of bounds, with one exception: a technology imposed from outside the team, such as a company policy or an existing contract, is a constraint and may be recorded as one. If the team had a choice and made it, the choice belongs in the high level design, not here.
 
@@ -54,7 +54,7 @@ Lists what the system must do and how well it must do it. Requirements are split
 
 Every requirement carries a unique identifier that is never reused, a priority level, a statement written in the form "[condition] [subject] MUST [action] [object] [measurable constraint]", and the method by which it will be verified. A requirement with no verification method is not finished.
 
-Priority levels: P0 blocks release, P1 ships in a later release, P2 is optional.
+Priority levels: P0 blocks release, P1 ships in a later release.
 
 ### 10.1 Functional
 
@@ -70,11 +70,11 @@ Links to the agreed design assets, not the assets themselves. Each entry names t
 
 ## 12. Out of Scope
 
-Lists work that is excluded from this release but expected in a later one. This differs from non-goals, which are excluded permanently. The purpose is to close the question of why a particular capability is missing without having to answer it repeatedly during review.
+Lists work that is excluded from this release but expected in a later one. Non-goals differ: they are excluded permanently. P1 requirements differ too: they are delivered later, but they are already written in Section 10 with an identifier and a verification method. Work listed here is not written as a requirement anywhere in this document. If it is taken up later, it is specified in a document of its own. The purpose is to close the question of why a particular capability is missing without having to answer it repeatedly during review.
 
-## 13. Assumptions, Dependencies & Risks
+## 13. Assumptions, Constraints, Dependencies & Risks
 
-Three related tables in one section, kept together because they form a chain. Assumptions are things taken to be true without proof. If an assumption turns out to be wrong, the contents of this document change. Dependencies are concrete items outside the team's control that must be completed first, each with a named owner and a date. Risks are things that may go wrong, recorded with their impact and the planned response.
+Four related tables in one section, kept together because they form a chain. Assumptions are things taken to be true without proof. If an assumption turns out to be wrong, the contents of this document change. Constraints are limits imposed from outside the team that cannot be negotiated, each recorded with the source that imposes it: a company policy, a regulation, or an existing contract. A technology the team did not choose is recorded here and nowhere else in this document. Dependencies are concrete items outside the team's control that must be completed first, each with a named owner and a date. Risks are things that may go wrong, recorded with their impact and the planned response.
 
 Mitigation is a column within the risk table rather than a section of its own. It may be preventive, reducing the chance of the risk occurring, or contingent, describing what will be done if it occurs anyway.
 
