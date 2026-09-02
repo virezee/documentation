@@ -2,7 +2,7 @@
 
 ## About This Standard
 
-No standards body has published a specification for a document called a high level design. The terms HLD and LLD are industry usage. What has been standardised is the architecture description itself, by ISO/IEC/IEEE 42010:2022. That standard defines the rules an architecture description must follow, covering stakeholders, viewpoints, views, and the correspondence between them, but it deliberately prescribes no document outline. IEEE 1016-2009, which did prescribe one, has been Inactive-Reserved since 5 March 2020 and has no successor.
+No standards body has published a specification for a document called a high level design. The terms HLD and LLD are industry usage. What has been standardised is the architecture description itself, by ISO/IEC/IEEE 42010:2022. That standard defines the rules an architecture description must follow, covering stakeholders, viewpoints, views, and the correspondence between them, but it deliberately prescribes no document outline. IEEE 1016-2009 has been Inactive-Reserved since 5 March 2020 and has no successor.
 
 The outline therefore comes from arc42 version 9, whose twelve sections supply the concrete viewpoints that 42010 leaves open. Diagrams follow the C4 model, with UML sequence diagrams for runtime scenarios. Architectural decisions use the Nygard record format. Quality requirements use the six part scenario form from the Software Engineering Institute, with attribute names taken from ISO/IEC 25010.
 

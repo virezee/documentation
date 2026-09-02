@@ -1,0 +1,27 @@
+# LLD Standard
+
+There is no standard for a low level design, and this document does not invent one. What it fixes is where the document comes from and where its boundary lies. What goes inside it differs from project to project, and it has to.
+
+The closest thing to a standard is IEEE 1016-2009, which covers detailed design and is the only specification that ever did. It has been Inactive-Reserved since 5 March 2020, with no successor, no working group, and no active projects. ISO/IEC/IEEE 15289 names an information item called a low-level software design description but gives no outline for it. ISO/IEC/IEEE 12207 defines the process that produces the design, not the content of the document. No RFC has ever addressed the subject. Nothing plays the role for detailed design that arc42 plays for architecture.
+
+So the low level design is a derivative of the high level design and nothing else. The design subject it details is a building block the architecture already identified. Its boundary is the test written into the high level design: if a detail could change without changing the structure of the system or a contract between components, it belongs here. Class and method names, database columns and indexes, algorithms, timeout values, and configuration are all evicted from the architecture, and this is where they land. Where no high level design exists, the detailed design descends from the requirements instead, which is what IEEE 1016 assumes when it treats both levels as a single design description.
+
+The content varies, and the reasons it varies are not accidental.
+
+The nearest standard refuses to prescribe an outline. IEEE 1016-2009 is organised by viewpoint rather than by section, and viewpoints are selected according to stakeholder concerns. It inherits that from ISO/IEC/IEEE 42010, which deliberately prescribes no document structure at all. Even the specification says the content is variable.
+
+Several of the viewpoints are already spent upstream. Of the eleven that IEEE 1016 defines, five are held by the architecture: context, composition, structure, dependency, and interaction. What remains for the detailed design depends on how far down the architecture went. A detailed architecture leaves a thin design below it. The boundary moves with each project, so it cannot be fixed here.
+
+The notation is undecided by anyone. The C4 model stops short of this level, calling its code diagrams unnecessary for all but the most complex components, and defines no notation for them. It defers to UML class diagrams or entity relationship diagrams. If the notation is left open, the content is left further open still.
+
+The content is bound to technology in a way the levels above it are not. A detailed design names column types, indexes, timeout values, and configuration parameters, and every one of those changes with the language, the framework, and the database product. An outline that fits a REST service over a relational database is wrong for embedded firmware. This is why 15289 names the item and stops.
+
+A detailed design has a short life, because it changes every time the code changes, while a document standard assumes content stable enough to be worth standardising. IEEE 1016 died without a successor because the role it described has been taken over by the code itself.
+
+What follows from all of this is a rule rather than a template. Use the eleven viewpoints of IEEE 1016-2009 as a checklist, not as an outline: context, composition, logical, dependency, information, patterns use, interface, structure, interaction, state dynamics, and algorithm. Drop the ones the architecture already answered. Write the ones that remain, in whatever order the subject makes sensible.
+
+Six of the eleven survive the architecture in most projects, and they are the place to start. Logical becomes the modules and classes inside the building block, with the responsibility of each. Interface becomes the full signature of every operation: parameters, types, return values, errors, and the conditions that hold before and after. Information becomes the data model, drawn at the logical level and then written out as the physical schema of one named database product. Patterns use records which patterns were applied, where, and what role each participant plays. State dynamics records the states, transitions, guards, and events of anything with a lifecycle. Algorithm records the steps, the complexity, and the input bounds of any logic that is not obvious from reading it.
+
+Three things belong here that no viewpoint covers, because they are the detail the architecture explicitly evicted. Error handling, with its codes, retries, timeouts, and fallbacks, all stated as numbers. Configuration, with its parameters, defaults, and differences between environments. And the design of the tests, with what is mocked and what coverage is required.
+
+Record which building block each part details, and which requirement identifiers it ultimately serves, so the chain from requirements through architecture to implementation stays readable in both directions.
